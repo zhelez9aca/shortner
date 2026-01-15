@@ -29,4 +29,9 @@ public class ErrorResponse {
     public LocalDateTime getBrokeAt() {
         return brokeAt;
     }
+
+    public void setTimestamp(LocalDateTime now) {
+        brokeAt = now;
+    }
+
 }

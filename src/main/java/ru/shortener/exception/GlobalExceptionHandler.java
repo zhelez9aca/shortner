@@ -24,7 +24,6 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ErrorResponse> handleInvalidUrlException(InvalidUrlException ex){
         ErrorResponse errorResponse = new ErrorResponse();
         errorResponse.setMessage(ex.getMessage());
-<<<<<<< HEAD
         errorResponse.setTimestamp(LocalDateTime.now());
         errorResponse.setStatus(400);
         return ResponseEntity.status(400).body(errorResponse);
@@ -38,15 +37,12 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(404).body(errorResponse);
 
     }
+    @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ErrorResponse> handleMethodArgumentNotValidException(MethodArgumentNotValidException ex){
         ErrorResponse errorResponse = new ErrorResponse();
         errorResponse.setStatus(400);
         errorResponse.setTimestamp(LocalDateTime.now());
         errorResponse.setMessage(ex.getMessage());
-        return ResponseEntity.status(400).body(errorResponse);
-=======
-        errorResponse.setStatus(400);
-        errorResponse.setBrokeAt(LocalDateTime.now());
         return ResponseEntity.status(400).body(errorResponse);
     }
     @ExceptionHandler(ShortLinkNotFoundException.class)
@@ -56,6 +52,6 @@ public class GlobalExceptionHandler {
         errorResponse.setStatus(404);
         errorResponse.setBrokeAt(LocalDateTime.now());
         return ResponseEntity.status(404).body(errorResponse);
->>>>>>> 152fe1a (Stable backend: PostgreSQL + JPA + REST API working)
+
     }
 }

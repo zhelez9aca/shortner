@@ -41,12 +41,5 @@ public class ShortLinkController {
 
 
     }
-    @GetMapping("/stats/{code}")
-    public ShortLinkStatsResponse getStats(@PathVariable String code){
-        return service.getStats(code);
-
-
-    }
-
 
 }
